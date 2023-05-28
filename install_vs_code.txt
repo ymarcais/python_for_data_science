@@ -1,0 +1,53 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    install_vs_code.txt                                :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ymarcais <ymarcais@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/05/26 16:02:42 by ymarcais          #+#    #+#              #
+#    Updated: 2023/05/26 16:02:58 by ymarcais         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+To install Visual Studio Code on a Debian virtual machine:
+
+1. Open a terminal in your Debian virtual machine.
+
+2. Update the package lists and upgrade existing packages by running the following commands:
+   ```
+   sudo apt update
+   sudo apt upgrade
+   ```
+
+3. Install the dependencies necessary for Visual Studio Code by executing the following command:
+   ```
+   sudo apt install curl gpg
+   ```
+
+4. Import the Microsoft GPG key used for signing Visual Studio Code packages by running the following command:
+   ```
+   curl -sSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null
+   ```
+
+5. Add the Visual Studio Code repository to the system's package sources by running the following command:
+   ```
+   echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
+   ```
+
+6. Update the package lists again to include the Visual Studio Code repository by running the following command:
+   ```
+   sudo apt update
+   ```
+
+7. Install Visual Studio Code by executing the following command:
+   ```
+   sudo apt install code
+   ```
+
+8. Once the installation is complete, you can launch Visual Studio Code by searching for it in the applications menu or by running the following command in the terminal:
+   ```
+   code
+   ```
+
+Visual Studio Code should now be installed and ready to use in your Debian virtual machine.

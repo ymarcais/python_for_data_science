@@ -1,0 +1,63 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    install_pyton_on_vm.txt                            :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ymarcais <ymarcais@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/05/26 15:29:07 by ymarcais          #+#    #+#              #
+#    Updated: 2023/05/26 15:30:04 by ymarcais         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+To install Python 3.10 in a Debian environment using shell commands:
+
+1. Open a terminal.
+
+2. Update the package lists and upgrade existing packages by running the following commands:
+   ```
+   sudo apt update
+   sudo apt upgrade
+   ```
+
+3. Install the necessary build dependencies by executing the following command:
+   ```
+   sudo apt install build-essential zlib1g-dev libffi-dev libssl-dev libncurses5-dev libsqlite3-dev libgdbm-dev libbz2-dev liblzma-dev tk-dev libreadline-dev libdb-dev
+   ```
+
+4. Download the Python 3.10 source code by using `curl` or `wget`:
+   ```
+   wget https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz
+   ```
+
+5. Extract the downloaded source code using the following command:
+   ```
+   tar -xf Python-3.10.0.tgz
+   ```
+
+6. Navigate into the extracted directory:
+   ```
+   cd Python-3.10.0
+   ```
+
+7. Configure the Python build with the desired options using the following command:
+   ```
+   ./configure --enable-optimizations
+   ```
+
+8. Compile and install Python by running the following commands:
+   ```
+   make -j $(nproc)
+   sudo make altinstall
+   ```
+
+   The `altinstall` command is used instead of `install` to prevent overriding the system's default Python interpreter.
+
+9. Verify that Python 3.10 is installed by running the following command:
+   ```
+   python3.10 --version
+   ```
+
+   It should display the Python version as 3.10.x.
+
+Congratulations! You have successfully installed Python 3.10 on your Debian environment using shell commands.
