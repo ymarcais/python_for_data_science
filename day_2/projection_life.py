@@ -17,8 +17,8 @@ from load_csv import load
 
 def thousands_formatter(x, pos):
     if x >= 1000:
-        value = 10 ** (x - 3)
-        return f"{value:.0f}k"
+        x /= 1000
+        return f"{int(x)}k"
     else:
         return int(x)
 
