@@ -1,4 +1,4 @@
-# x squared
+# x
 def square(x: int | float) -> int | float:
     return x * x
 
@@ -6,11 +6,16 @@ def square(x: int | float) -> int | float:
 def pow(x: int | float) -> int | float:
     return x ** x
 
-# Use an array to store the counter value
+# the count variable retains its value between function calls because 
+# it is defined as nonlocal in an outer scope and captured 
+# as a closure variable
 def outer(x: int | float, function) -> object:
-    counter = [x]  
-    def inner(static=counter) -> float:
-        static[0] = function(static[0])
-        return static[0]
+    count = 0
+    def inner() -> float:
+        nonlocal count
+        if count == 0:
+            count = x
+        count = function(count)
+        return count
     return inner
 
